@@ -23,3 +23,6 @@ npm run dev
 
 -- generar iconos de la app
 https://www.favicon-generator.org/
+-- compresor de imagenes
+https://compressjpg.net/
+https://compressjpeg.com/
