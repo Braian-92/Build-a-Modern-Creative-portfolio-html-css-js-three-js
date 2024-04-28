@@ -64,6 +64,17 @@ svg {
   height: 200px;
   border: 3px solid #6cff8d;
   border-top: 3px solid rgba(108, 255, 140, 0.4784313725);
+  border-bottom: 3px solid rgba(108, 255, 140, 0.4784313725);
+}
+.loading__bar {
+  width: 90%;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  background: #ccc;
+  border-radius: 2px;
 }
 
 /*# sourceMappingURL=/config.0874d187.css.map */
