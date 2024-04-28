@@ -10,3 +10,16 @@ npm i --save-dev parcel-bundler
 
 parcel index.html
   parcel index.html --open
+
+################
+"scripts": {
+  "dev": "parcel index.html --open"
+},
+
+por este cambio de linea ahora se ejecuta como
+################
+
+npm run dev
+
+-- generar iconos de la app
+https://www.favicon-generator.org/
