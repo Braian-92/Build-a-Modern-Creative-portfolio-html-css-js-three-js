@@ -44,6 +44,56 @@ canvas,
 svg {
   max-width: 100%;
 }
+
+/* ------- VARIABLES ------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+*:after, *:before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  -webki-font-smoothing: antialiased;
+  font-weight: 700;
+  font-style: italic;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+/* ------- VARIABLES ------- */
 .loading {
   position: fixed;
   top: 0;
@@ -65,6 +115,11 @@ svg {
   border: 3px solid #6cff8d;
   border-top: 3px solid rgba(108, 255, 140, 0.4784313725);
   border-bottom: 3px solid rgba(108, 255, 140, 0.4784313725);
+}
+@media (max-width: 600px) {
+  .loading__box {
+    width: 90vw;
+  }
 }
 .loading__bar {
   width: 90%;
@@ -92,6 +147,11 @@ svg {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 355px) {
+  .loading__text {
+    font-size: 17px;
+  }
+}
 .loading__text--dot {
   width: 15px;
   height: 15px;
@@ -117,6 +177,22 @@ svg {
   bottom: 0;
   left: 50%;
   transform: translate(-50%);
+}
+.loading__counter {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.loading__counter--number {
+  color: #6cff8d;
 }
 
 /*# sourceMappingURL=/config.0874d187.css.map */

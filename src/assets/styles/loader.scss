@@ -1,3 +1,5 @@
+@import './base.scss';
+
 .loading {
   position: fixed;
   top: 0;
@@ -15,9 +17,14 @@
     position: relative;
     width: 500px;
     height: 200px;
-    border: 3px solid #6cff8d;
-    border-top: 3px solid #6cff8c7a;
-    border-bottom: 3px solid #6cff8c7a;
+    border: 3px solid $green-color;
+    border-top: 3px solid $dark-green-color;
+    border-bottom: 3px solid $dark-green-color;
+    @media (max-width: 600px) {
+      & {
+        width: 90vw;
+      }
+    }
   }
   &__bar {
     width: 90%;
@@ -32,10 +39,10 @@
       height: 100%;
       width: 50%;
       border-radius: 2px;
-      background: #6cff8d;
+      background: $green-color;
     }
   }
-  &__text{
+  &__text {
     position: relative;
     color: #fff;
     padding: 1rem;
@@ -44,7 +51,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    &--dot{
+    @media (max-width: 355px) {
+      & {
+        font-size: 17px;
+      }
+    }
+    &--dot {
       width: 15px;
       height: 15px;
       margin: 0 3px;
@@ -52,23 +64,39 @@
       background: #fff;
       animation: pulse 1s infinite;
       @keyframes pulse {
-        from{
+        from {
           opacity: 0;
-          background: #6cff8d;
+          background: $green-color;
         }
-        to{
+        to {
           opacity: 1;
         }
       }
     }
-    &--border{
+    &--border {
       width: 85%;
       height: 1px;
-      background: #6cff8c7a;
+      background: $dark-green-color;
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translate(-50%);
+    }
+  }
+  &__counter {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    &--number {
+      color: $green-color;
     }
   }
 }
