@@ -1,0 +1,1 @@
+{"version":3,"sources":["assets\\styles\\base.scss"],"names":[],"mappings":"AAAA;EACE","file":"base.a3883547.css","sourceRoot":"..\\src","sourcesContent":["body{\r\n  background-color: red;\r\n}"]}
