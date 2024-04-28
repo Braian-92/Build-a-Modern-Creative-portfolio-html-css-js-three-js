@@ -117,41 +117,18 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"assets/favicons/manifest.json":[function(require,module,exports) {
-module.exports = {
-  "name": "App",
-  "icons": [{
-    "src": "\/android-icon-36x36.png",
-    "sizes": "36x36",
-    "type": "image\/png",
-    "density": "0.75"
-  }, {
-    "src": "\/android-icon-48x48.png",
-    "sizes": "48x48",
-    "type": "image\/png",
-    "density": "1.0"
-  }, {
-    "src": "\/android-icon-72x72.png",
-    "sizes": "72x72",
-    "type": "image\/png",
-    "density": "1.5"
-  }, {
-    "src": "\/android-icon-96x96.png",
-    "sizes": "96x96",
-    "type": "image\/png",
-    "density": "2.0"
-  }, {
-    "src": "\/android-icon-144x144.png",
-    "sizes": "144x144",
-    "type": "image\/png",
-    "density": "3.0"
-  }, {
-    "src": "\/android-icon-192x192.png",
-    "sizes": "192x192",
-    "type": "image\/png",
-    "density": "4.0"
-  }]
-};
+})({"assets/js/app.js":[function(require,module,exports) {
+var bar = document.querySelector('.loading__bar--inner');
+var counter_num = document.querySelector('.loading__counter--number');
+var c = 0;
+var barInterval = setInterval(function () {
+  bar.style.width = c + '%';
+  counter_num.innerText = c + '%';
+  c++;
+  if (c === 101) {
+    clearInterval(barInterval);
+  }
+}, 50);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -321,5 +298,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","assets/favicons/manifest.json"], null)
-//# sourceMappingURL=/assets/favicons/manifest.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","assets/js/app.js"], null)
+//# sourceMappingURL=/app.56908c73.js.map

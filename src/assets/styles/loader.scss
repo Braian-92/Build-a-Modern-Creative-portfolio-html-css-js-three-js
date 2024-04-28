@@ -37,7 +37,7 @@
     border-radius: 2px;
     &--inner {
       height: 100%;
-      width: 50%;
+      width: 0%;
       border-radius: 2px;
       background: $green-color;
     }
@@ -97,6 +97,17 @@
     padding: 10px;
     &--number {
       color: $green-color;
+    }
+  }
+  &__width_animation {
+    animation: width_animation 1s forwards;
+    @keyframes width_animation {
+      0% {
+        width: 85%;
+      }
+      100% {
+        width: 280px;
+      }
     }
   }
 }
