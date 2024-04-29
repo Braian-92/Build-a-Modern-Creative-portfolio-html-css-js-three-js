@@ -4,12 +4,12 @@
   height: 100vh;
   background: #111;
   color: #fff;
-  overflow: hidden;
+  // overflow: hidden;
   .header {
     position: absolute;
     top: 1rem;
     left: 50%;
-    transform: translateX(-50);
+    transform: translateX(-50%);
     &__wrap {
       padding: 10px;
       display: flex;
