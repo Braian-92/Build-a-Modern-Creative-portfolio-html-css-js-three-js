@@ -28,3 +28,6 @@ https://compressjpg.net/
 https://compressjpeg.com/
 
 npm install gsap
+
+-- visualizador de interpolacion para scss
+https://cubic-bezier.com/#.17,.67,.83,.67
