@@ -285,7 +285,7 @@ ul {
   position: absolute;
   top: 0;
   height: 100%;
-  transform: translate3d(150%, 0, 0);
+  transform: translate3d(150%, 0, 0); /* Inicialmente fuera de la vista */
   transition: transform 0.4s cubic-bezier(0.5, 0.5, 0.3, 0.1);
 }
 .coolLink span {
@@ -296,7 +296,7 @@ ul {
   transform-origin: left;
 }
 .coolLink:hover:after {
-  transform: translate3d(150%, 0, 0);
+  transform: translate3d(0, 0, 0); /* Entra en la vista */
 }
 .coolLink:hover span {
   transform: translate3d(-150%, 0, 0);
