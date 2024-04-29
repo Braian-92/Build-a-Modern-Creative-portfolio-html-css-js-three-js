@@ -45,6 +45,15 @@ svg {
   max-width: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
 /* ------- VARIABLES ------- */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -93,6 +102,15 @@ svg {
   max-width: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
 /* ------- VARIABLES ------- */
 .loading {
   position: fixed;
@@ -107,6 +125,7 @@ svg {
   display: grid;
   place-items: center;
   font-family: "Orbitron", sans-serif;
+  display: none;
 }
 .loading__box {
   position: relative;
@@ -212,6 +231,32 @@ svg {
   transform: translate(-50%, -50%);
   width: 85%;
   opacity: 0;
+}
+.landing {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #111;
+  color: #fff;
+  overflow: hidden;
+}
+.landing .header {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50);
+}
+.landing .header__wrap {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60vw;
+}
+.landing .header__left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 /*# sourceMappingURL=/config.0874d187.css.map */
