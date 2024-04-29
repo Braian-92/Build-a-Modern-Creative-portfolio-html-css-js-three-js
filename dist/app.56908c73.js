@@ -5520,6 +5520,28 @@ var barInterval = setInterval(function () {
       height: '500px',
       borderRadius: '50%'
     });
+    _gsap.default.to('.loading__svg', {
+      duration: 10,
+      opacity: 1,
+      rotate: '360deg'
+    });
+    _gsap.default.to('.loading__box', {
+      delay: 2,
+      duration: 1,
+      border: 'none'
+    });
+    _gsap.default.to('.loading', {
+      delay: 2,
+      duration: 2,
+      // zIndex: 1,
+      background: 'transparent',
+      opacity: 0.5
+    });
+    _gsap.default.to('.loading__svg', {
+      delay: 2,
+      duration: 100,
+      rotate: '360deg'
+    });
   }
 }, 20);
 },{"gsap":"../node_modules/gsap/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
