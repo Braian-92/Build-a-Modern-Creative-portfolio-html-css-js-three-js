@@ -26,3 +26,5 @@ https://www.favicon-generator.org/
 -- compresor de imagenes
 https://compressjpg.net/
 https://compressjpeg.com/
+
+npm install gsap
