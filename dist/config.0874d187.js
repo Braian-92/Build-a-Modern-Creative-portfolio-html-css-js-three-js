@@ -180,13 +180,18 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/styles/coolLinks.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/js/config.js":[function(require,module,exports) {
 "use strict";
 
 require("../styles/base.scss");
 require("../styles/loader.scss");
 require("../styles/landing.scss");
-},{"../styles/base.scss":"assets/styles/base.scss","../styles/loader.scss":"assets/styles/loader.scss","../styles/landing.scss":"assets/styles/landing.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("../styles/coolLinks.scss");
+},{"../styles/base.scss":"assets/styles/base.scss","../styles/loader.scss":"assets/styles/loader.scss","../styles/landing.scss":"assets/styles/landing.scss","../styles/coolLinks.scss":"assets/styles/coolLinks.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
