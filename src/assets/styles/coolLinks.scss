@@ -1,3 +1,4 @@
+@import './base.scss';
 .coolLink {
   position: relative;
   display: grid;
@@ -79,7 +80,7 @@
     font-weight: 500;
   }
   &:after {
-    content: "";
+    content: '';
     height: 85%;
     width: 95%;
     top: 6px;
@@ -90,5 +91,35 @@
   }
   &:hover:after {
     transform: translate3d(0, -5px, 0);
+  }
+  @media (max-with: 800px) {
+    & {
+      transform: scale3d(0.7, 0.7, 0.7);
+      font-style: 23px;
+    }
+  }
+}
+.coloredIcon {
+  color: #fff;
+  font-size: 35px;
+  &:hover {
+    animation: coloredIconAnimation 0.2s infinite;
+  }
+  @keyframes coloredIconAnimation {
+    0% {
+      text-shadow: 5px 4px $red-color, -5px -6px $blue-color;
+    }
+    25% {
+      text-shadow: -5px -6px $red-color, 5px 4px $blue-color;
+    }
+    50% {
+      text-shadow: 5px -4px $red-color, -8px 4px $blue-color;
+    }
+    75% {
+      text-shadow: -8px -4px $red-color, -5px -4px $blue-color;
+    }
+    100% {
+      text-shadow: -5px 0 $red-color, 5px -4px $blue-color;
+    }
   }
 }

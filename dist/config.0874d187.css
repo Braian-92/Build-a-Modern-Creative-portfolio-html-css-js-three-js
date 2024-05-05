@@ -262,6 +262,93 @@ ul {
   font-size: 18px;
   font-weight: 700;
 }
+@media (max-with: 1200px) {
+  .landing .header__wrap {
+    width: 100vh;
+  }
+}
+@media (max-with: 650px) {
+  .landing .header__sm {
+    display: none;
+  }
+}
+@media (max-with: 370px) {
+  .landing .header {
+    left: 36%;
+  }
+  .landing .header__wrap {
+    gap: 20%;
+  }
+  .landing .header .coolLink[data-text=Home] {
+    display: none;
+  }
+}
+.landing .socials {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+*:after, *:before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  -webki-font-smoothing: antialiased;
+  font-weight: 700;
+  font-style: italic;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ------- VARIABLES ------- */
 .coolLink {
   position: relative;
   display: grid;
@@ -343,6 +430,37 @@ ul {
 }
 .coolButton:hover:after {
   transform: translate3d(0, -5px, 0);
+}
+@media (max-with: 800px) {
+  .coolButton {
+    transform: scale3d(0.7, 0.7, 0.7);
+    font-style: 23px;
+  }
+}
+
+.coloredIcon {
+  color: #fff;
+  font-size: 35px;
+}
+.coloredIcon:hover {
+  animation: coloredIconAnimation 0.2s infinite;
+}
+@keyframes coloredIconAnimation {
+  0% {
+    text-shadow: 5px 4px #f44336, -5px -6px #2196f3;
+  }
+  25% {
+    text-shadow: -5px -6px #f44336, 5px 4px #2196f3;
+  }
+  50% {
+    text-shadow: 5px -4px #f44336, -8px 4px #2196f3;
+  }
+  75% {
+    text-shadow: -8px -4px #f44336, -5px -4px #2196f3;
+  }
+  100% {
+    text-shadow: -5px 0 #f44336, 5px -4px #2196f3;
+  }
 }
 
 /*# sourceMappingURL=/config.0874d187.css.map */

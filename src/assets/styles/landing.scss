@@ -26,5 +26,35 @@
         font-weight: 700;
       }
     }
+    @media (max-with: 1200px) {
+      &__wrap {
+        width: 100vh;
+      }
+    }
+    @media (max-with: 650px) {
+      &__sm {
+        display: none;
+      }
+    }
+    @media (max-with: 370px) {
+      & {
+        left: 36%;
+      }
+      &__wrap {
+        gap: 20%;
+      }
+      .coolLink[data-text="Home"] {
+        display: none;
+      }
+    }
+  }
+  .socials {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 }

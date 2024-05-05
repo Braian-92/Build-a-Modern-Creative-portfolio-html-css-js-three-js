@@ -37,3 +37,6 @@ https://bennettfeely.com/clippy/
 
 -- generador de border radius especiales
 https://9elements.github.io/fancy-border-radius/
+
+-- pagina de iconos
+https://iconscout.com/unicons/getting-started/line
