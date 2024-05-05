@@ -143,7 +143,8 @@
     height: 60%;
     z-index: 2;
     color: #fff;
-    font-family: 'Athens Classic', sans-serif;
+    font-family: 'Nulshock', sans-serif;
+    font-family: 'Noir-et-Blanc', sans-serif;
     & h4 {
       font-size: 33px;
     }
@@ -162,7 +163,7 @@
     }
     @media (min-width: 1200px) {
       & {
-        left: 15%;
+        left: 5%;
       }
       & h4 {
         font-size: 50px;
