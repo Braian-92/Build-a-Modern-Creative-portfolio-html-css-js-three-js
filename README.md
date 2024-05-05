@@ -40,3 +40,6 @@ https://9elements.github.io/fancy-border-radius/
 
 -- pagina de iconos
 https://iconscout.com/unicons/getting-started/line
+
+-- pagina de fuentes
+https://www.cdnfonts.com/athens-classic.font
