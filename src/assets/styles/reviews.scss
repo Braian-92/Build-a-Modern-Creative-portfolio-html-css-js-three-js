@@ -1,0 +1,46 @@
+@import './base.scss';
+
+.reviews {
+  position: relative;
+  background: $darkish-blue;
+  color: #fff;
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .instructor {
+      position: relative;
+      background: #28316013;
+      box-shadow: 0 8px 32px 0 $box-shadow-blue1;
+      &__curve {
+
+      }
+      &__infos {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 17px;
+      }
+      &__img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border-right: 2px solid $red-color;
+      }
+      &__col {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      &__info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        & img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
