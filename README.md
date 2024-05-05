@@ -5,7 +5,7 @@ npm init -y
 npm i --save-dev parcel-bundler 
 
 (no funciona hasta ejecutar esto en powershel como administrador 
-  => Set-ExecutionPolicy RemoteSigned -Scope CurrentUser )
+  => "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser" )
   npm i -g parcel-bundler 
 
 parcel index.html
@@ -16,10 +16,10 @@ parcel index.html
   "dev": "parcel index.html --open"
 },
 
-por este cambio de linea ahora se ejecuta como
 ################
-
+por este cambio de linea ahora se ejecuta como
 npm run dev
+
 
 -- generar iconos de la app
 https://www.favicon-generator.org/
@@ -43,3 +43,6 @@ https://iconscout.com/unicons/getting-started/line
 
 -- pagina de fuentes
 https://www.cdnfonts.com/athens-classic.font
+
+-- pagina swiper
+https://swiperjs.com/get-started

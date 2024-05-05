@@ -869,11 +869,23 @@ ul {
   background: rgba(40, 49, 96, 0.0745098039);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
 }
+.reviews__header .instructor__curve {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  width: 30%;
+  height: 120%;
+  border-left: 2px solid #f44336;
+  border-radius: 50%;
+  transform: rotate(-20deg);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.67);
+}
 .reviews__header .instructor__infos {
   display: flex;
   align-items: center;
   gap: 15px;
   font-size: 17px;
+  font-family: sans-serif;
 }
 .reviews__header .instructor__img {
   width: 150px;
