@@ -678,6 +678,7 @@ ul {
 }
 .skills__header {
   font-weight: 600;
+  font-size: 35px;
 }
 .skills__text {
   position: absolute;
@@ -687,10 +688,42 @@ ul {
 .skills__text--left {
   left: 0;
   top: 6rem;
+  animation: moveleft 30s linear infinite;
+}
+@keyframes moveleft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 .skills__text--right {
   right: 0;
   top: 11rem;
+  animation: moveright 30s linear infinite;
+}
+@keyframes moveright {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(50%, 0, 0);
+  }
+}
+@media (max-width: 700px) {
+  .skills {
+    height: 200px;
+  }
+  .skills__text {
+    font-size: 25px;
+  }
+  .skills__text--left {
+    top: 5rem;
+  }
+  .skills__text--right {
+    top: 8rem;
+  }
 }
 
 /*# sourceMappingURL=/config.0874d187.css.map */
