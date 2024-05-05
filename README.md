@@ -31,3 +31,9 @@ npm install gsap
 
 -- visualizador de interpolacion para scss
 https://cubic-bezier.com/#.17,.67,.83,.67
+
+-- generador de mascaras de recorte en css
+https://bennettfeely.com/clippy/
+
+-- generador de border radius especiales
+https://9elements.github.io/fancy-border-radius/
