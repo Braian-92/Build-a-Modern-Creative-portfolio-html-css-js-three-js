@@ -5533,7 +5533,7 @@ var barInterval = setInterval(function () {
     _gsap.default.to('.loading', {
       delay: 2,
       duration: 2,
-      // zIndex: 1,
+      zIndex: 1,
       background: 'transparent',
       opacity: 0.5
     });
@@ -5543,7 +5543,7 @@ var barInterval = setInterval(function () {
       rotate: '360deg'
     });
   }
-}, 20);
+}, 10);
 },{"gsap":"../node_modules/gsap/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
