@@ -125,7 +125,6 @@ ul {
   display: grid;
   place-items: center;
   font-family: "Orbitron", sans-serif;
-  display: none;
 }
 .loading__box {
   position: relative;
@@ -239,6 +238,7 @@ ul {
   background: #111;
   color: #fff;
   overflow: hidden;
+  background-image: url("/92.375fb986.jpg");
 }
 .landing .header {
   position: absolute;
