@@ -1,5 +1,6 @@
-import gsap from 'gsap'
 import Swiper from 'swiper'
+import gsap from 'gsap'
+import { reviews } from './data'
 const bar = document.querySelector('.loading__bar--inner')
 const counter_num = document.querySelector('.loading__counter--number')
 let c = 0
@@ -49,10 +50,48 @@ let barInterval = setInterval(() => {
 }, 10)
 
 var swiper = new Swiper('.swiper', {
-  slidesPerView: 3,
+  slidesPerView: 1,
   spaceBetween: 30,
   pagination: {
     el: '.swiper-pagination',
     clickable: true
+  },
+  breakpoints: {
+    850: {
+      slidesPerView: 2,
+    },
+    1400: {
+      slidesPerView: 3,
+    },
+    1900: {
+      slidesPerView: 4,
+    }
   }
+})
+
+console.log(reviews)
+
+const swiper_container = document.querySelector('.swiper-wrapper')
+
+reviews.map((review) => {
+  let templete = `
+  <div class="swiper-slide">
+    <div class="review">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8.35a3.07,3.07,0,0,0-3.54.53,3,3,0,0,0,0,4.24L11.29,16a1,1,0,0,0,1.42,0l2.83-2.83a3,3,0,0,0,0-4.24A3.07,3.07,0,0,0,12,8.35Zm2.12,3.36L12,13.83,9.88,11.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0,1,1,0,0,0,1.42,0,1,1,0,0,1,1.41,0A1,1,0,0,1,14.12,11.71ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"></path></svg>
+      <div class="review__card">
+        <div class="review__topborder"></div>
+        <div class="review__text">
+          <span> </span>
+          <span>${review.review}</span>
+        </div>
+        <img src="${review.images}" alt="" class="review__img">
+        <div class="review__profile">
+          <span>${review.name}</span>
+          <span>${review.position}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  `
+  swiper_container.innerHTML += templete
 })

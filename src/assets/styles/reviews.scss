@@ -53,3 +53,73 @@
     }
   }
 }
+.swiper__wrapper {
+  padding: 2rem 0;
+}
+.swiper {
+  // min-height: 500px;
+  user-select: none;
+}
+.review {
+  position: relative;
+  display: flex;
+  font-size: 16px;
+  padding: 5px;
+  &__card {
+    position: relative;
+    width: 100%;
+    padding: 2rem 0;
+    display: flex;
+    @media (min-width: 650px) {
+      & {
+        font-size: 18px;
+        font-family: sans-serif;
+      }
+    }
+  }
+  & svg {
+    display: none;
+    width: 30px;
+    fill: $red-color;
+  }
+  &__topborder {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+  }
+
+  &__text {
+    user-select: none;
+    font-family: 'Haghisty_DEMO', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: $red-color;
+  }
+  &__img {
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 30px;
+  }
+  &__profile {
+    position: absolute;
+    left: 5rem;
+    bottom: -1.5rem;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Josefin Sans Std', sans-serif;
+    font-size: 17px;
+  }
+}
+.swiper-slide {
+  filter: blur(2px) !important;
+  transform: scale(0.8) !important;
+  transition: all 0.2s;
+}
+.swiper-slide-active {
+  filter: blur(0px) !important;
+  transform: scale(1) !important;
+}
