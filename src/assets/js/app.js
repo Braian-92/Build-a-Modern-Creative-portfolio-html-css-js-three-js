@@ -1,4 +1,4 @@
-import Swiper from 'swiper'
+import Swiper, { Pagination, Navigation } from 'swiper'
 import gsap from 'gsap'
 import { reviews } from './data'
 const bar = document.querySelector('.loading__bar--inner')
@@ -49,25 +49,33 @@ let barInterval = setInterval(() => {
   }
 }, 10)
 
+// Swiper.use([Pagination, Navigation])
 var swiper = new Swiper('.swiper', {
+  modules: [Pagination,Navigation],
   slidesPerView: 1,
   spaceBetween: 30,
   pagination: {
     el: '.swiper-pagination',
+    type: 'bullets',
     clickable: true
   },
   breakpoints: {
     850: {
-      slidesPerView: 2,
+      slidesPerView: 2
     },
     1400: {
-      slidesPerView: 3,
+      slidesPerView: 3
     },
     1900: {
-      slidesPerView: 4,
+      slidesPerView: 4
     }
+  },
+  navigation: {
+    nextEl: ".swiper-button-next-modified",
+    prevEl: ".swiper-button-prev-modified",
   }
-})
+});
+swiper.init()
 
 console.log(reviews)
 

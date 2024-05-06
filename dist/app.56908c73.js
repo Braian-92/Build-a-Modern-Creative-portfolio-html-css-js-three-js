@@ -9946,10 +9946,12 @@ var reviews = exports.reviews = [{
 },{"./images":"assets/js/images.js"}],"assets/js/app.js":[function(require,module,exports) {
 "use strict";
 
-var _swiper = _interopRequireDefault(require("swiper"));
+var _swiper = _interopRequireWildcard(require("swiper"));
 var _gsap = _interopRequireDefault(require("gsap"));
 var _data = require("./data");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 var bar = document.querySelector('.loading__bar--inner');
 var counter_num = document.querySelector('.loading__counter--number');
 var c = 0;
@@ -9997,11 +9999,15 @@ var barInterval = setInterval(function () {
     });
   }
 }, 10);
+
+// Swiper.use([Pagination, Navigation])
 var swiper = new _swiper.default('.swiper', {
+  modules: [_swiper.Pagination, _swiper.Navigation],
   slidesPerView: 1,
   spaceBetween: 30,
   pagination: {
     el: '.swiper-pagination',
+    type: 'bullets',
     clickable: true
   },
   breakpoints: {
@@ -10014,8 +10020,13 @@ var swiper = new _swiper.default('.swiper', {
     1900: {
       slidesPerView: 4
     }
+  },
+  navigation: {
+    nextEl: ".swiper-button-next-modified",
+    prevEl: ".swiper-button-prev-modified"
   }
 });
+swiper.init();
 console.log(_data.reviews);
 var swiper_container = document.querySelector('.swiper-wrapper');
 _data.reviews.map(function (review) {
@@ -10047,7 +10058,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52176" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56643" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
