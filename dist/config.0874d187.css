@@ -1793,21 +1793,21 @@ button.swiper-pagination-bullet {
   height: 700px;
 }
 .project__img img {
-  width: 60vh;
+  width: 60vw;
   height: 600px;
-  object-fit: cover;
+  object-fit: scale-down;
   position: absolute;
   right: 10vw;
   top: 3rem;
 }
 .project__links {
   padding-top: 3rem;
-  background: red !important;
+  color: rebeccapurple;
 }
-.project__links button:before {
+.project__links a button:before {
   background: #000;
 }
-.project__links button:after {
+.project__links a button:after {
   border-color: #000;
 }
 

@@ -35,9 +35,9 @@
     width: 100%;
     height: 700px;
     & img {
-      width: 60vh;
+      width: 60vw;
       height: 600px;
-      object-fit: cover;
+      object-fit: scale-down;
       position: absolute;
       right: 10vw;
       top: 3rem;
@@ -45,8 +45,8 @@
   }
   &__links {
     padding-top: 3rem;
-    background: red !important;
-    button {
+    color: rebeccapurple;
+    a button {
       &:before {
         background: #000;
       }
