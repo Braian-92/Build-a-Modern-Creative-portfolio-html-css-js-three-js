@@ -49,9 +49,8 @@ let barInterval = setInterval(() => {
   }
 }, 10)
 
-// Swiper.use([Pagination, Navigation])
+Swiper.use([Pagination, Navigation])
 var swiper = new Swiper('.swiper', {
-  modules: [Pagination,Navigation],
   slidesPerView: 1,
   spaceBetween: 30,
   pagination: {
@@ -75,7 +74,6 @@ var swiper = new Swiper('.swiper', {
     prevEl: ".swiper-button-prev-modified",
   }
 });
-swiper.init()
 
 console.log(reviews)
 

@@ -980,6 +980,13 @@ ul {
   filter: blur(0px) !important;
   transform: scale(1) !important;
 }
+
+.swiper__tools {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 /**
  * Swiper 8.1.4
  * Most modern mobile touch slider and framework with hardware accelerated transitions

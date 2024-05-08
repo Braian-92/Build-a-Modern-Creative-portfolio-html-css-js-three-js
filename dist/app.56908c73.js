@@ -9999,10 +9999,8 @@ var barInterval = setInterval(function () {
     });
   }
 }, 10);
-
-// Swiper.use([Pagination, Navigation])
+_swiper.default.use([_swiper.Pagination, _swiper.Navigation]);
 var swiper = new _swiper.default('.swiper', {
-  modules: [_swiper.Pagination, _swiper.Navigation],
   slidesPerView: 1,
   spaceBetween: 30,
   pagination: {
@@ -10026,7 +10024,6 @@ var swiper = new _swiper.default('.swiper', {
     prevEl: ".swiper-button-prev-modified"
   }
 });
-swiper.init();
 console.log(_data.reviews);
 var swiper_container = document.querySelector('.swiper-wrapper');
 _data.reviews.map(function (review) {
@@ -10058,7 +10055,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56643" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61569" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
