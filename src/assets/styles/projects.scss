@@ -6,7 +6,7 @@
   }
 }
 
-.proyect {
+.project {
   &__header {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -28,6 +28,31 @@
       display: flex;
       align-items: center;
       font-weight: 400;
+    }
+  }
+  &__img {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    & img {
+      width: 60vh;
+      height: 600px;
+      object-fit: cover;
+      position: absolute;
+      right: 10vw;
+      top: 3rem;
+    }
+  }
+  &__links {
+    padding-top: 3rem;
+    background: red !important;
+    button {
+      &:before {
+        background: #000;
+      }
+      &:after {
+        border-color: #000;
+      }
     }
   }
 }
