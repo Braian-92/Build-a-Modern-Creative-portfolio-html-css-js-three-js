@@ -10020,8 +10020,8 @@ var swiper = new _swiper.default('.swiper', {
     }
   },
   navigation: {
-    nextEl: ".swiper-button-next-modified",
-    prevEl: ".swiper-button-prev-modified"
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
   }
 });
 console.log(_data.reviews);
