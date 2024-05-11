@@ -101,3 +101,6 @@ reviews.map((review) => {
   `
   swiper_container.innerHTML += templete
 })
+
+
+const questions = document.querySelectorAll('.question');

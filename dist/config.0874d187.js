@@ -200,6 +200,10 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/styles/faq.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/js/config.js":[function(require,module,exports) {
 "use strict";
 
@@ -211,7 +215,8 @@ require("../styles/skills.scss");
 require("../styles/reviews.scss");
 require("../styles/swiper.scss");
 require("../styles/projects.scss");
-},{"../styles/base.scss":"assets/styles/base.scss","../styles/loader.scss":"assets/styles/loader.scss","../styles/landing.scss":"assets/styles/landing.scss","../styles/coolLinks.scss":"assets/styles/coolLinks.scss","../styles/skills.scss":"assets/styles/skills.scss","../styles/reviews.scss":"assets/styles/reviews.scss","../styles/swiper.scss":"assets/styles/swiper.scss","../styles/projects.scss":"assets/styles/projects.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("../styles/faq.scss");
+},{"../styles/base.scss":"assets/styles/base.scss","../styles/loader.scss":"assets/styles/loader.scss","../styles/landing.scss":"assets/styles/landing.scss","../styles/coolLinks.scss":"assets/styles/coolLinks.scss","../styles/skills.scss":"assets/styles/skills.scss","../styles/reviews.scss":"assets/styles/reviews.scss","../styles/swiper.scss":"assets/styles/swiper.scss","../styles/projects.scss":"assets/styles/projects.scss","../styles/faq.scss":"assets/styles/faq.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
