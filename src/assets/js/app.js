@@ -70,10 +70,10 @@ var swiper = new Swiper('.swiper', {
     }
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
   }
-});
+})
 
 console.log(reviews)
 
@@ -102,5 +102,13 @@ reviews.map((review) => {
   swiper_container.innerHTML += templete
 })
 
-
-const questions = document.querySelectorAll('.question');
+const questions = [...document.querySelectorAll('.question')]
+console.log(questions);
+questions.map((question) => {
+  let q_text = question.querySelector('h3')
+  q_text.addEventListener("click", () => {
+    questions.filter((q) => q !== question)
+    .map((q) => q.classList.remove("open"));
+    question.classList.toggle("open")
+  })
+})

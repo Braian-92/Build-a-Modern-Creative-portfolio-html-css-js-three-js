@@ -9952,6 +9952,12 @@ var _data = require("./data");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 var bar = document.querySelector('.loading__bar--inner');
 var counter_num = document.querySelector('.loading__counter--number');
 var c = 0;
@@ -10020,8 +10026,8 @@ var swiper = new _swiper.default('.swiper', {
     }
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
   }
 });
 console.log(_data.reviews);
@@ -10030,7 +10036,19 @@ _data.reviews.map(function (review) {
   var templete = "\n  <div class=\"swiper-slide\">\n    <div class=\"review\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12,8.35a3.07,3.07,0,0,0-3.54.53,3,3,0,0,0,0,4.24L11.29,16a1,1,0,0,0,1.42,0l2.83-2.83a3,3,0,0,0,0-4.24A3.07,3.07,0,0,0,12,8.35Zm2.12,3.36L12,13.83,9.88,11.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0,1,1,0,0,0,1.42,0,1,1,0,0,1,1.41,0A1,1,0,0,1,14.12,11.71ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z\"></path></svg>\n      <div class=\"review__card\">\n        <div class=\"review__topborder\"></div>\n        <div class=\"review__text\">\n          <span> </span>\n          <span>".concat(review.review, "</span>\n        </div>\n        <img src=\"").concat(review.images, "\" alt=\"\" class=\"review__img\">\n        <div class=\"review__profile\">\n          <span>").concat(review.name, "</span>\n          <span>").concat(review.position, "</span>\n        </div>\n      </div>\n    </div>\n  </div>\n  ");
   swiper_container.innerHTML += templete;
 });
-var questions = document.querySelectorAll('.question');
+var questions = _toConsumableArray(document.querySelectorAll('.question'));
+console.log(questions);
+questions.map(function (question) {
+  var q_text = question.querySelector('h3');
+  q_text.addEventListener("click", function () {
+    questions.filter(function (q) {
+      return q !== question;
+    }).map(function (q) {
+      return q.classList.remove("open");
+    });
+    question.classList.toggle("open");
+  });
+});
 },{"swiper":"../node_modules/swiper/swiper.mjs","gsap":"../node_modules/gsap/index.js","./data":"assets/js/data.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -10056,7 +10074,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52807" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54218" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
