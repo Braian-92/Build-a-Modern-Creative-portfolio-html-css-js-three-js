@@ -1,5 +1,7 @@
 import * as THREE from 'three'
-
+import images from './images'
+const container = document.querySelector('.three_bg')
+const loader = new THREE.TextureLoader()
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(
   70,
@@ -8,21 +10,33 @@ const camera = new THREE.PerspectiveCamera(
   1000
 )
 
-const renderer = new THREE.WebGLRenderer()
+const renderer = new THREE.WebGLRenderer({
+  antialias: true
+})
 renderer.setSize(window.innerWidth, window.innerHeight)
 
-document.body.appendChild(renderer.domElement)
+container.appendChild(renderer.domElement)
 
-const geometry = new THREE.PlaneGeometry(10, 5)
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight
+  camera.updateProjectionMatrix()
+  renderer.setSize(window.innerWidth, window.innerHeight)
+})
+
+const geometry = new THREE.PlaneGeometry(5, 5, 15, 9)
 const material = new THREE.MeshBasicMaterial({
-  color: 0xff0000
+  // color: 0xff0000,
+  map: loader.load(images.bg2),
+  wireframe: true
 })
 
 const mesh = new THREE.Mesh(geometry, material)
+scene.add(mesh)
 
 camera.position.z = 5
 
-scene.add(mesh)
+const count = geometry.attributes.position.count
+
 
 function animate() {
   requestAnimationFrame(animate)

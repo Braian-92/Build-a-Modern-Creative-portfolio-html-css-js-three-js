@@ -10,6 +10,12 @@ import avatar9 from '../images/avatars/9.png'
 import avatar10 from '../images/avatars/10.png'
 import avatar11 from '../images/avatars/11.png'
 
+import bg1 from '../images/shapes/19.jpg'
+import bg2 from '../images/shapes/24.jpg'
+import bg3 from '../images/shapes/26.jpg'
+import bg4 from '../images/shapes/44.jpg'
+import bg5 from '../images/shapes/213.png'
+
 const images = {
   avatar1,
   avatar2,
@@ -21,7 +27,12 @@ const images = {
   avatar8,
   avatar9,
   avatar10,
-  avatar11
+  avatar11,
+  bg1,
+  bg2,
+  bg3,
+  bg4,
+  bg5
 }
 
 export default images
