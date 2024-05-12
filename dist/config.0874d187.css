@@ -2061,6 +2061,11 @@ button.swiper-pagination-bullet {
 .contact__header {
   margin-bottom: 3rem;
 }
+@media (max-width: 1100px) {
+  .contact {
+    padding: 2rem;
+  }
+}
 
 .form__info {
   display: flex;
@@ -2079,6 +2084,63 @@ button.swiper-pagination-bullet {
 }
 .form__info input:focus {
   outline: none;
+}
+.form__flex {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.form__flex textarea {
+  width: 70%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+  font-size: 2.2vw;
+  color: #444;
+  resize: none;
+}
+.form__flex textarea:focus {
+  outline: none;
+}
+.form__flex .coolButton {
+  font-weight: 900;
+  font-size: 20px;
+}
+.form__flex .coolButton:before {
+  background: #000;
+}
+.form__flex .coolButton:after {
+  display: none;
+}
+.form__flex .coolButton:hover:before {
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .form__flex {
+    flex-direction: column;
+  }
+  .form__flex textarea {
+    font-size: 4vw;
+  }
+  .form__info {
+    font-size: 4vw;
+  }
+  .form__info input {
+    font-size: 4vw;
+  }
+}
+@media (max-width: 610px) {
+  .form__info {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 5vw;
+    width: 100%;
+  }
+  .form__info input {
+    font-size: inherit;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=/config.0874d187.css.map */
