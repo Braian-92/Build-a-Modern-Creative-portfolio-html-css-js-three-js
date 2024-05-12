@@ -2066,6 +2066,39 @@ button.swiper-pagination-bullet {
     padding: 2rem;
   }
 }
+.contact__profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.contact__profile-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.contact__profile-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.contact__profile-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 17px;
+}
+.contact__profile-bg {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  background: #f6f5a4;
+  border-radius: 5px;
+  left: 20%;
+}
 
 .form__info {
   display: flex;
@@ -2130,6 +2163,12 @@ button.swiper-pagination-bullet {
     font-size: 4vw;
   }
 }
+@media (max-width: 800px) {
+  .contact .coolButton {
+    transform: scale3d(1, 1, 1);
+    font-size: 19px;
+  }
+}
 @media (max-width: 610px) {
   .form__info {
     flex-direction: column;
@@ -2140,6 +2179,10 @@ button.swiper-pagination-bullet {
   .form__info input {
     font-size: inherit;
     width: 100%;
+  }
+  .form__flex textarea {
+    width: 100%;
+    font-size: 5vw;
   }
 }
 
