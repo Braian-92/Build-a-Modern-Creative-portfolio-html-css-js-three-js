@@ -2053,5 +2053,32 @@ button.swiper-pagination-bullet {
   outline: 1px solid #0f0f0f;
   outline-offset: 2px;
 }
+.contact {
+  position: relative;
+  background: linear-gradient(to right, #f3e5ce, #f4deb7, #f3e4ce);
+  font-family: sans-serif;
+}
+.contact__header {
+  margin-bottom: 3rem;
+}
+
+.form__info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.2vw;
+  font-weight: 500;
+}
+.form__info input {
+  font-size: inherit;
+  font-weight: inherit;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #000;
+  color: #444;
+}
+.form__info input:focus {
+  outline: none;
+}
 
 /*# sourceMappingURL=/config.0874d187.css.map */
