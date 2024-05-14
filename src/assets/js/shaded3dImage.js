@@ -1,5 +1,7 @@
 import * as THREE from 'three'
 import images from './images'
+import vertex from '../shaders/vertex.glsl'
+import fragment from '../shaders/fragment.glsl'
 
 const loader = new THREE.TextureLoader()
 const texture1 = loader.load(images.me1)
@@ -7,18 +9,25 @@ const texture2 = loader.load(images.me2)
 const texture3 = loader.load(images.bg1)
 const texture4 = loader.load(images.bg2)
 
+function lerp(start, end, t){
+  return start * (1-t) + end * t
+}
+
 class shaded {
   constructor() {
     this.container = document.querySelector('.landing')
+    this.inner = document.querySelector('.intro')
     this.links = [...document.querySelectorAll('#shadedimg')]
+    this.targetX = 0
+    this.targetY = 0
     this.scene = new THREE.Scene()
     this.perspective = 1000
     this.sizes = new THREE.Vector2(0, 0)
     this.offset = new THREE.Vector2(0, 0)
     this.uniforms = {
       uTexture: { value: texture4 },
-      uAlpha: { alpha: 0 },
-      uOffset: { value: new THREE.Vector2(0, 0) },
+      uAlpha: { alpha: 0.0 },
+      uOffset: { value: new THREE.Vector2(0.0, 0.0) },
       trasparent: true
     }
     this.links.map((link, i) => {
@@ -40,10 +49,17 @@ class shaded {
       })
 
       link.addEventListener('mouseleave', () => {
-        this.uniforms.uAlpha.value = 0.0
+        this.uniforms.uAlpha.value = lerp(
+          this.uniforms.uAlpha.value,
+          0.0,
+          0.1
+        )
       })
+      this.checkHovered()
       this.setupCamera()
+      this.fallowMouseMove()
       this.createMesh()
+      this.renderer()
     })
   }
 
@@ -58,6 +74,16 @@ class shaded {
       aspectRatio,
       pixelRatio
     }
+  }
+
+  checkHovered() {
+    this.inner.addEventListener('mouseenter', () => {
+      this.hovered = true
+    })
+    this.inner.addEventListener('mouseleave', () => {
+      this.hovered = false
+      this.uniforms.uTexture = { value: texture1 }
+    })
   }
 
   setupCamera() {
@@ -85,12 +111,26 @@ class shaded {
     this.container.appendChild(this.renderer.domElement)
   }
 
+  fallowMouseMove() {
+    window.addEventListener('mousemove', (e) => {
+      this.targetX = e.clientX
+      this.targetY = e.clientY
+    })
+  }
+
   createMesh() {
     this.geometry = new THREE.PlaneGeometry(1, 1, 20, 20)
     this.material = new THREE.ShaderMaterial({
       uniforms: this.uniforms,
-      vertexShader: 
+      vertexShader: vertex,
+      fragmentShader: fragment,
+      transparent: true
     })
+    this.mesh = new THREE.Mesh(this.geometry, this.material)
+    this.sizes.set(370, 470, 1)
+    this.mesh.scale.set(this.sizes.x, this.sizes.y, 1)
+    this.mesh.position.set(this.offset.x, this.offset.y, 0)
+    this.scene.add(mesh)
   }
 
   onResize() {
@@ -100,5 +140,9 @@ class shaded {
       Math.PI
     this.renderer.setSize(this.viewport.width, this.viewport.height)
     this.camera.updateMatrix()
+  }
+
+  renderer(){
+    
   }
 }
