@@ -23,10 +23,10 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight)
 })
 
-const geometry = new THREE.PlaneGeometry(18, 10, 30, 9)
+const geometry = new THREE.PlaneGeometry(18, 10, 15, 9)
 const material = new THREE.MeshBasicMaterial({
   // color: 0xff0000,
-  map: loader.load(images.bg2),
+  map: loader.load(images.bg3),
   // wireframe: true
 })
 
@@ -45,7 +45,12 @@ function animate() {
     const x = geometry.attributes.position.getX(i)
     const y = geometry.attributes.position.getY(i)
 
-    geometry.attributes.position.setZ(i, 0.9 * Math.sin( x * time * 0.3) )
+    // animaciones
+    const anim1 = 0.35 * Math.sin( x * 1.5 * time * 0.7) 
+    const anim2 = 0.15 * Math.sin( x + time * 0.7) 
+    const anim3 = 0.1 * Math.sin( y * 15 + time * 0.7) 
+
+    geometry.attributes.position.setZ(i, anim1 + anim2 + anim3)
     geometry.computeVertexNormals()
     geometry.attributes.position.needsUpdate = true
   }

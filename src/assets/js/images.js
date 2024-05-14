@@ -16,6 +16,9 @@ import bg3 from '../images/shapes/26.jpg'
 import bg4 from '../images/shapes/44.jpg'
 import bg5 from '../images/shapes/213.png'
 
+import me1 from '../images/me1.png'
+import me2 from '../images/projects/facebook/facebook.jpg'
+
 const images = {
   avatar1,
   avatar2,
@@ -32,7 +35,9 @@ const images = {
   bg2,
   bg3,
   bg4,
-  bg5
+  bg5,
+  me1,
+  me2
 }
 
 export default images
