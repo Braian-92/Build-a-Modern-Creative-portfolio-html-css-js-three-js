@@ -13,11 +13,14 @@ function lerp(start, end, t) {
   return start * (1 - t) + end * t
 }
 
-class shaded {
+class Shaded {
   constructor() {
     this.container = document.querySelector('.landing')
+    console.log('🚀 ~ Shaded ~ constructor ~ container:', [this.container])
     this.inner = document.querySelector('.intro')
+    console.log('🚀 ~ Shaded ~ constructor ~ inner:', [this.inner])
     this.links = [...document.querySelectorAll('#shadedimg')]
+    console.log('🚀 ~ Shaded ~ constructor ~ links:', this.links)
     this.targetX = 0
     this.targetY = 0
     this.scene = new THREE.Scene()
@@ -32,6 +35,7 @@ class shaded {
     }
     this.links.map((link, i) => {
       link.addEventListener('mouseenter', () => {
+        console.log('mouse enter')
         switch (i) {
           case 0:
             this.uniforms.uTexture.value = texture1
@@ -49,13 +53,15 @@ class shaded {
       })
 
       link.addEventListener('mouseleave', () => {
+        console.log('mouse leave')
         this.uniforms.uAlpha.value = lerp(this.uniforms.uAlpha.value, 0.0, 0.1)
       })
       this.checkHovered()
       this.setupCamera()
-      this.fallowMouseMove()
+      this.followMouseMove()
       this.createMesh()
-      this.renderer()
+      this.createSphere()
+      this.render()
     })
   }
 
@@ -97,17 +103,24 @@ class shaded {
     this.camera.position.set(0, 0, this.perspective)
 
     //! renderer
-    this.renderer = new THREE.WebGL1Renderer({
+    this.renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: true
     })
 
     this.renderer.setSize(this.viewport.width, this.viewport.height)
     this.renderer.setPixelRatio(this.viewport.pixelRatio)
+
+    // // Elimina todos los elementos hijos del contenedor
+    // while (this.container.firstChild) {
+    //   this.container.removeChild(this.container.firstChild)
+    // }
+
     this.container.appendChild(this.renderer.domElement)
+    console.log('se agrego el elemento')
   }
 
-  fallowMouseMove() {
+  followMouseMove() {
     window.addEventListener('mousemove', (e) => {
       this.targetX = e.clientX
       this.targetY = e.clientY
@@ -126,7 +139,23 @@ class shaded {
     this.sizes.set(370, 470, 1)
     this.mesh.scale.set(this.sizes.x, this.sizes.y, 1)
     this.mesh.position.set(this.offset.x, this.offset.y, 0)
-    this.scene.add(mesh)
+    this.scene.add(this.mesh)
+  }
+
+  createSphere() {
+    // Define la geometría de la esfera
+    this.geometry = new THREE.SphereGeometry(1, 32, 32) // Radio, segmentos de anillos, segmentos radiales
+
+    // Define el material de la esfera (puedes ajustar los parámetros según tus necesidades)
+    this.material = new THREE.MeshBasicMaterial({
+      color: 0xff0000, // Color de la esfera
+    })
+
+    this.mesh = new THREE.Mesh(this.geometry, this.material)
+    this.mesh.position.set(0, 0, -2) // Posición de la esfera
+
+    // Agrega la esfera a la escena
+    this.scene.add(this.mesh)
   }
 
   onResize() {
@@ -138,10 +167,10 @@ class shaded {
     this.camera.updateMatrix()
   }
 
-  renderer() {
+  render() {
     this.offset.x = lerp(this.offset.x, this.targetX, 0.1)
     this.offset.x = lerp(this.offset.y, this.targetY, 0.1)
-    this.uniform.uOffset.value.set(
+    this.uniforms.uOffset.value.set(
       (this.targetX - this.offset.x) * 0.003,
       -(this.targetY - this.offset.y) * 0.003
     )
@@ -149,7 +178,19 @@ class shaded {
       this.offset.x - window.innerWidth / 2,
       -this.offset.y + window.innerHeight / 2
     )
+    this.hovered
+      ? (this.uniforms.uAlpha.value = lerp(
+          this.uniforms.uAlpha.value,
+          1.0,
+          0.1
+        ))
+      : (this.uniforms.uAlpha.value = lerp(
+          this.uniforms.uAlpha.value,
+          0.0,
+          0.1
+        ))
     this.renderer.render(this.scene, this.camera)
     window.requestAnimationFrame(this.render.bind(this))
   }
 }
+new Shaded()

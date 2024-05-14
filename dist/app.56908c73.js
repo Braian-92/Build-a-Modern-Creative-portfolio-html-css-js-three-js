@@ -9856,6 +9856,10 @@ module.exports = "/26.ed79881b.jpg";
 module.exports = "/44.e1b92a2a.jpg";
 },{}],"assets/images/shapes/213.png":[function(require,module,exports) {
 module.exports = "/213.8a2f2479.png";
+},{}],"assets/images/me1.png":[function(require,module,exports) {
+module.exports = "/me1.ed59a900.png";
+},{}],"assets/images/projects/facebook/facebook.jpg":[function(require,module,exports) {
+module.exports = "/facebook.58fc13fd.jpg";
 },{}],"assets/js/images.js":[function(require,module,exports) {
 "use strict";
 
@@ -9879,6 +9883,8 @@ var _13 = _interopRequireDefault(require("../images/shapes/24.jpg"));
 var _14 = _interopRequireDefault(require("../images/shapes/26.jpg"));
 var _15 = _interopRequireDefault(require("../images/shapes/44.jpg"));
 var _16 = _interopRequireDefault(require("../images/shapes/213.png"));
+var _me = _interopRequireDefault(require("../images/me1.png"));
+var _facebook = _interopRequireDefault(require("../images/projects/facebook/facebook.jpg"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const images = {
   avatar1: _.default,
@@ -9896,10 +9902,12 @@ const images = {
   bg2: _13.default,
   bg3: _14.default,
   bg4: _15.default,
-  bg5: _16.default
+  bg5: _16.default,
+  me1: _me.default,
+  me2: _facebook.default
 };
 var _default = exports.default = images;
-},{"../images/avatars/1.png":"assets/images/avatars/1.png","../images/avatars/2.png":"assets/images/avatars/2.png","../images/avatars/3.png":"assets/images/avatars/3.png","../images/avatars/4.png":"assets/images/avatars/4.png","../images/avatars/5.png":"assets/images/avatars/5.png","../images/avatars/6.png":"assets/images/avatars/6.png","../images/avatars/7.png":"assets/images/avatars/7.png","../images/avatars/8.png":"assets/images/avatars/8.png","../images/avatars/9.png":"assets/images/avatars/9.png","../images/avatars/10.png":"assets/images/avatars/10.png","../images/avatars/11.png":"assets/images/avatars/11.png","../images/shapes/19.jpg":"assets/images/shapes/19.jpg","../images/shapes/24.jpg":"assets/images/shapes/24.jpg","../images/shapes/26.jpg":"assets/images/shapes/26.jpg","../images/shapes/44.jpg":"assets/images/shapes/44.jpg","../images/shapes/213.png":"assets/images/shapes/213.png"}],"assets/js/data.js":[function(require,module,exports) {
+},{"../images/avatars/1.png":"assets/images/avatars/1.png","../images/avatars/2.png":"assets/images/avatars/2.png","../images/avatars/3.png":"assets/images/avatars/3.png","../images/avatars/4.png":"assets/images/avatars/4.png","../images/avatars/5.png":"assets/images/avatars/5.png","../images/avatars/6.png":"assets/images/avatars/6.png","../images/avatars/7.png":"assets/images/avatars/7.png","../images/avatars/8.png":"assets/images/avatars/8.png","../images/avatars/9.png":"assets/images/avatars/9.png","../images/avatars/10.png":"assets/images/avatars/10.png","../images/avatars/11.png":"assets/images/avatars/11.png","../images/shapes/19.jpg":"assets/images/shapes/19.jpg","../images/shapes/24.jpg":"assets/images/shapes/24.jpg","../images/shapes/26.jpg":"assets/images/shapes/26.jpg","../images/shapes/44.jpg":"assets/images/shapes/44.jpg","../images/shapes/213.png":"assets/images/shapes/213.png","../images/me1.png":"assets/images/me1.png","../images/projects/facebook/facebook.jpg":"assets/images/projects/facebook/facebook.jpg"}],"assets/js/data.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10103,7 +10111,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63802" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57709" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

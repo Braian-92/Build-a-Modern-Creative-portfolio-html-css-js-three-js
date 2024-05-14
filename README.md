@@ -47,3 +47,7 @@ https://www.cdnfonts.com/athens-classic.font
 -- pagina swiper
 https://swiperjs.com/get-started
 $ npm install swiper
+
+
+-- instalar threejs
+npm i three
