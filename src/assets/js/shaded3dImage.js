@@ -9,8 +9,8 @@ const texture2 = loader.load(images.me2)
 const texture3 = loader.load(images.bg1)
 const texture4 = loader.load(images.bg2)
 
-function lerp(start, end, t){
-  return start * (1-t) + end * t
+function lerp(start, end, t) {
+  return start * (1 - t) + end * t
 }
 
 class shaded {
@@ -49,11 +49,7 @@ class shaded {
       })
 
       link.addEventListener('mouseleave', () => {
-        this.uniforms.uAlpha.value = lerp(
-          this.uniforms.uAlpha.value,
-          0.0,
-          0.1
-        )
+        this.uniforms.uAlpha.value = lerp(this.uniforms.uAlpha.value, 0.0, 0.1)
       })
       this.checkHovered()
       this.setupCamera()
@@ -142,7 +138,18 @@ class shaded {
     this.camera.updateMatrix()
   }
 
-  renderer(){
-    
+  renderer() {
+    this.offset.x = lerp(this.offset.x, this.targetX, 0.1)
+    this.offset.x = lerp(this.offset.y, this.targetY, 0.1)
+    this.uniform.uOffset.value.set(
+      (this.targetX - this.offset.x) * 0.003,
+      -(this.targetY - this.offset.y) * 0.003
+    )
+    this.mesh.position.set(
+      this.offset.x - window.innerWidth / 2,
+      -this.offset.y + window.innerHeight / 2
+    )
+    this.renderer.render(this.scene, this.camera)
+    window.requestAnimationFrame(this.render.bind(this))
   }
 }
