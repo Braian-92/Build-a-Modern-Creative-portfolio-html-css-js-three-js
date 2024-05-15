@@ -51,3 +51,9 @@ $ npm install swiper
 
 -- instalar threejs
 npm i three
+
+-- preloader de imagenes revisa cuando bajas todas las seleccionadas y dispara un evento al finalizar
+npm install imagesloaded
+
+-- suavisa el scroll del navegador
+npm install smooth-scrollbar --save

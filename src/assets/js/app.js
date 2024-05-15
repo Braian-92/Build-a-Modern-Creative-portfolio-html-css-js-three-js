@@ -1,6 +1,9 @@
 import Swiper, { Pagination, Navigation } from 'swiper'
 import gsap from 'gsap'
 import { reviews } from './data'
+import imagesLoaded from 'imagesloaded'
+import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar';
+
 const bar = document.querySelector('.loading__bar--inner')
 const counter_num = document.querySelector('.loading__counter--number')
 let c = 0
@@ -34,32 +37,39 @@ let barInterval = setInterval(() => {
       duration: 1,
       border: 'none'
     })
-    gsap.to('.loading', {
-      delay: 2,
-      duration: 2,
-      zIndex: 1,
-      background: 'transparent',
-      opacity: 0.5
-    })
-    gsap.to('.loading__svg', {
-      delay: 2,
-      duration: 100,
-      rotate: '360deg'
-    })
-    gsap.to('header', {
-      duration: 1,
-      delay: 2,
-      top: '0'
-    })
-    gsap.to('.socials', {
-      duration: 1,
-      delay: 2.5,
-      bottom: '10rem'
-    })
-    gsap.to('.scrollDown', {
-      duration: 1,
-      delay: 3,
-      bottom: '3rem'
+    imagesLoaded(document.querySelectorAll('img'), () => {
+      gsap.to('.loading', {
+        delay: 2,
+        duration: 2,
+        zIndex: 1,
+        background: 'transparent',
+        opacity: 0.5
+      })
+      gsap.to('.loading__svg', {
+        delay: 2,
+        duration: 100,
+        rotate: '360deg'
+      })
+      gsap.to('header', {
+        duration: 1,
+        delay: 2,
+        top: '0'
+      })
+      gsap.to('.socials', {
+        duration: 1,
+        delay: 2.5,
+        bottom: '10rem'
+      })
+      gsap.to('.scrollDown', {
+        duration: 1,
+        delay: 3,
+        bottom: '3rem'
+      })
+      let options = {
+        // alwaysShowTracks: true
+        dumping: 5
+      }
+      let pageSmoothScroll = Scrollbar.init(document.body, options)
     })
   }
 }, 10)
@@ -118,12 +128,13 @@ reviews.map((review) => {
 })
 
 const questions = [...document.querySelectorAll('.question')]
-console.log(questions);
+console.log(questions)
 questions.map((question) => {
   let q_text = question.querySelector('h3')
-  q_text.addEventListener("click", () => {
-    questions.filter((q) => q !== question)
-    .map((q) => q.classList.remove("open"));
-    question.classList.toggle("open")
+  q_text.addEventListener('click', () => {
+    questions
+      .filter((q) => q !== question)
+      .map((q) => q.classList.remove('open'))
+    question.classList.toggle('open')
   })
 })
