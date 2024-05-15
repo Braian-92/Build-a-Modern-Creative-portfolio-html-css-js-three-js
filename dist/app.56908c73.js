@@ -10026,6 +10026,21 @@ let barInterval = setInterval(() => {
       duration: 100,
       rotate: '360deg'
     });
+    _gsap.default.to('header', {
+      duration: 1,
+      delay: 2,
+      top: '0'
+    });
+    _gsap.default.to('.socials', {
+      duration: 1,
+      delay: 2.5,
+      bottom: '10rem'
+    });
+    _gsap.default.to('.scrollDown', {
+      duration: 1,
+      delay: 3,
+      bottom: '3rem'
+    });
   }
 }, 10);
 _swiper.default.use([_swiper.Pagination, _swiper.Navigation]);
