@@ -135,27 +135,21 @@ class Shaded {
       fragmentShader: fragment,
       transparent: true
     })
-    this.mesh = new THREE.Mesh(this.geometry, this.material)
+
+    const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    // this.mesh = new THREE.Mesh(this.geometry, this.material)
+    this.mesh = new THREE.Mesh(this.geometry, material)
     this.sizes.set(370, 470, 1)
     this.mesh.scale.set(this.sizes.x, this.sizes.y, 1)
     this.mesh.position.set(this.offset.x, this.offset.y, 0)
-    this.scene.add(this.mesh)
+    // this.scene.add(this.mesh)
   }
 
   createSphere() {
-    // Define la geometría de la esfera
-    this.geometry = new THREE.SphereGeometry(1, 32, 32) // Radio, segmentos de anillos, segmentos radiales
-
-    // Define el material de la esfera (puedes ajustar los parámetros según tus necesidades)
-    this.material = new THREE.MeshBasicMaterial({
-      color: 0xff0000, // Color de la esfera
-    })
-
-    this.mesh = new THREE.Mesh(this.geometry, this.material)
-    this.mesh.position.set(0, 0, -2) // Posición de la esfera
-
-    // Agrega la esfera a la escena
-    this.scene.add(this.mesh)
+    // const geometry = new THREE.SphereGeometry(1, 32, 32)
+    // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    // this.sphere = new THREE.Mesh(geometry, material)
+    // this.scene.add(this.sphere)
   }
 
   onResize() {
@@ -169,7 +163,7 @@ class Shaded {
 
   render() {
     this.offset.x = lerp(this.offset.x, this.targetX, 0.1)
-    this.offset.x = lerp(this.offset.y, this.targetY, 0.1)
+    this.offset.y = lerp(this.offset.y, this.targetY, 0.1) // Corrige este valor
     this.uniforms.uOffset.value.set(
       (this.targetX - this.offset.x) * 0.003,
       -(this.targetY - this.offset.y) * 0.003
