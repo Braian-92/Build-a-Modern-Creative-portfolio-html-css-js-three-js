@@ -2,26 +2,80 @@ import Swiper, { Pagination, Navigation } from 'swiper'
 import gsap from 'gsap'
 import { reviews } from './data'
 import imagesLoaded from 'imagesloaded'
-import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar';
+import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
 
 class DisableScrollPlugin extends ScrollbarPlugin {
-  static pluginName = 'disableScroll';
+  static pluginName = 'disableScroll'
 
   static defaultOptions = {
-    direction: '',
-  };
+    direction: ''
+  }
 
   transformDelta(delta) {
     if (this.options.direction) {
-      delta[this.options.direction] = 0;
+      delta[this.options.direction] = 0
     }
 
-    return { ...delta };
+    return { ...delta }
   }
 }
 
 // load the plugin
-Scrollbar.use(DisableScrollPlugin);
+Scrollbar.use(DisableScrollPlugin)
+
+class AnchorPlugin extends ScrollbarPlugin {
+  static pluginName = 'anchor'
+
+  onHashChange = () => {
+    this.jumpToHash(window.location.hash)
+  }
+
+  onClick = (event) => {
+    const { target } = event
+
+    if (target.tagName !== 'A') {
+      return
+    }
+
+    const hash = target.getAttribute('href')
+
+    if (!hash || hash.charAt(0) !== '#') {
+      return
+    }
+
+    this.jumpToHash(hash)
+  }
+
+  jumpToHash = (hash) => {
+    const { scrollbar } = this
+
+    if (!hash) {
+      return
+    }
+
+    // reset scrollTop
+    scrollbar.containerEl.scrollTop = 0
+
+    scrollbar.scrollIntoView(document.querySelector(hash))
+  }
+
+  onInit() {
+    this.jumpToHash(window.location.hash)
+
+    window.addEventListener('hashchange', this.onHashChange)
+
+    this.scrollbar.contentEl.addEventListener('click', this.onClick)
+  }
+
+  onDestory() {
+    window.removeEventListener('hashchange', this.onHashChange)
+
+    this.scrollbar.contentEl.removeEventListener('click', this.onClick)
+  }
+}
+
+// usage
+Scrollbar.use(AnchorPlugin)
 
 const bar = document.querySelector('.loading__bar--inner')
 const counter_num = document.querySelector('.loading__counter--number')
@@ -84,17 +138,19 @@ let barInterval = setInterval(() => {
         delay: 3,
         bottom: '3rem'
       })
-      let options = {
-        alwaysShowTracks: true,
-        dumping: 5,
-        plugins: {
-          disableScroll: {
-            direction: 'x',
-          },
-        },
-      }
-      let pageSmoothScroll = Scrollbar.init(document.body, options)
-      pageSmoothScroll.track.xAxis.element.remove()
+      setTimeout(() => {
+        let options = {
+          alwaysShowTracks: true,
+          dumping: 5,
+          plugins: {
+            disableScroll: {
+              direction: 'x'
+            }
+          }
+        }
+        let pageSmoothScroll = Scrollbar.init(document.body, options)
+        pageSmoothScroll.track.xAxis.element.remove()
+      }, 2000)
     })
   }
 }, 10)

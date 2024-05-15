@@ -16783,6 +16783,49 @@ class DisableScrollPlugin extends _smoothScrollbar.ScrollbarPlugin {
 
 // load the plugin
 _smoothScrollbar.default.use(DisableScrollPlugin);
+class AnchorPlugin extends _smoothScrollbar.ScrollbarPlugin {
+  static pluginName = 'anchor';
+  onHashChange = () => {
+    this.jumpToHash(window.location.hash);
+  };
+  onClick = event => {
+    const {
+      target
+    } = event;
+    if (target.tagName !== 'A') {
+      return;
+    }
+    const hash = target.getAttribute('href');
+    if (!hash || hash.charAt(0) !== '#') {
+      return;
+    }
+    this.jumpToHash(hash);
+  };
+  jumpToHash = hash => {
+    const {
+      scrollbar
+    } = this;
+    if (!hash) {
+      return;
+    }
+
+    // reset scrollTop
+    scrollbar.containerEl.scrollTop = 0;
+    scrollbar.scrollIntoView(document.querySelector(hash));
+  };
+  onInit() {
+    this.jumpToHash(window.location.hash);
+    window.addEventListener('hashchange', this.onHashChange);
+    this.scrollbar.contentEl.addEventListener('click', this.onClick);
+  }
+  onDestory() {
+    window.removeEventListener('hashchange', this.onHashChange);
+    this.scrollbar.contentEl.removeEventListener('click', this.onClick);
+  }
+}
+
+// usage
+_smoothScrollbar.default.use(AnchorPlugin);
 const bar = document.querySelector('.loading__bar--inner');
 const counter_num = document.querySelector('.loading__counter--number');
 let c = 0;
@@ -16844,17 +16887,19 @@ let barInterval = setInterval(() => {
         delay: 3,
         bottom: '3rem'
       });
-      let options = {
-        alwaysShowTracks: true,
-        dumping: 5,
-        plugins: {
-          disableScroll: {
-            direction: 'x'
+      setTimeout(() => {
+        let options = {
+          alwaysShowTracks: true,
+          dumping: 5,
+          plugins: {
+            disableScroll: {
+              direction: 'x'
+            }
           }
-        }
-      };
-      let pageSmoothScroll = _smoothScrollbar.default.init(document.body, options);
-      pageSmoothScroll.track.xAxis.element.remove();
+        };
+        let pageSmoothScroll = _smoothScrollbar.default.init(document.body, options);
+        pageSmoothScroll.track.xAxis.element.remove();
+      }, 2000);
     });
   }
 }, 10);
