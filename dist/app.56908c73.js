@@ -16766,6 +16766,23 @@ var _smoothScrollbar = _interopRequireWildcard(require("smooth-scrollbar"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+class DisableScrollPlugin extends _smoothScrollbar.ScrollbarPlugin {
+  static pluginName = 'disableScroll';
+  static defaultOptions = {
+    direction: ''
+  };
+  transformDelta(delta) {
+    if (this.options.direction) {
+      delta[this.options.direction] = 0;
+    }
+    return {
+      ...delta
+    };
+  }
+}
+
+// load the plugin
+_smoothScrollbar.default.use(DisableScrollPlugin);
 const bar = document.querySelector('.loading__bar--inner');
 const counter_num = document.querySelector('.loading__counter--number');
 let c = 0;
@@ -16828,10 +16845,16 @@ let barInterval = setInterval(() => {
         bottom: '3rem'
       });
       let options = {
-        // alwaysShowTracks: true
-        dumping: 5
+        alwaysShowTracks: true,
+        dumping: 5,
+        plugins: {
+          disableScroll: {
+            direction: 'x'
+          }
+        }
       };
       let pageSmoothScroll = _smoothScrollbar.default.init(document.body, options);
+      pageSmoothScroll.track.xAxis.element.remove();
     });
   }
 }, 10);

@@ -4,6 +4,25 @@ import { reviews } from './data'
 import imagesLoaded from 'imagesloaded'
 import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar';
 
+class DisableScrollPlugin extends ScrollbarPlugin {
+  static pluginName = 'disableScroll';
+
+  static defaultOptions = {
+    direction: '',
+  };
+
+  transformDelta(delta) {
+    if (this.options.direction) {
+      delta[this.options.direction] = 0;
+    }
+
+    return { ...delta };
+  }
+}
+
+// load the plugin
+Scrollbar.use(DisableScrollPlugin);
+
 const bar = document.querySelector('.loading__bar--inner')
 const counter_num = document.querySelector('.loading__counter--number')
 let c = 0
@@ -66,10 +85,16 @@ let barInterval = setInterval(() => {
         bottom: '3rem'
       })
       let options = {
-        // alwaysShowTracks: true
-        dumping: 5
+        alwaysShowTracks: true,
+        dumping: 5,
+        plugins: {
+          disableScroll: {
+            direction: 'x',
+          },
+        },
       }
       let pageSmoothScroll = Scrollbar.init(document.body, options)
+      pageSmoothScroll.track.xAxis.element.remove()
     })
   }
 }, 10)
